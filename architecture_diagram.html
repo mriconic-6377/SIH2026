@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GeoResilience AI — Industrial Grade Architecture Diagram</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      background: #f8fafc;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .diagram-container {
+      width: 1200px;
+      height: 720px;
+      position: relative;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+      padding: 20px;
+      box-sizing: border-box;
+    }
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="diagram-container">
+    <svg viewBox="0 0 1200 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Defs: Markers & Gradients -->
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 8 5 L 0 9 z" fill="#3b82f6" />
+        </marker>
+        <marker id="arrow-orange" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 8 5 L 0 9 z" fill="#f59e0b" />
+        </marker>
+        <marker id="arrow-red" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 1 L 8 5 L 0 9 z" fill="#ef4444" />
+        </marker>
+        <linearGradient id="pinn-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12" />
+          <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.06" />
+        </linearGradient>
+        <linearGradient id="stream-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#3b82f6" />
+          <stop offset="100%" stop-color="#f59e0b" />
+        </linearGradient>
+      </defs>
+
+      <!-- Main Header -->
+      <text x="600" y="38" text-anchor="middle" font-size="22" font-weight="900" fill="#0f172a" letter-spacing="0.5">
+        GeoResilience AI — Multi-Tier System Architecture (PINN &amp; IoT)
+      </text>
+      <text x="600" y="58" text-anchor="middle" font-size="12" font-weight="600" fill="#64748b">
+        End-to-End Disaster Intelligence &amp; Logistics Defense Suite (Beas Valley Corridor, Mandi-Kullu HP)
+      </text>
+
+      <!-- =================================================== -->
+      <!-- TIER 1: MULTI-MODAL INGESTION (LEFT) -->
+      <!-- =================================================== -->
+      <rect x="30" y="80" width="230" height="460" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="30" y="80" width="230" height="38" rx="14" fill="#f1f5f9" />
+      <text x="145" y="104" text-anchor="middle" font-size="13" font-weight="800" fill="#1e293b">TIER 1: MULTI-MODAL INGESTION</text>
+
+      <!-- Card 1: ISRO Cartosat DEM -->
+      <g transform="translate(45, 130)">
+        <rect width="200" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+        <rect x="10" y="12" width="36" height="40" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2"/>
+        <text x="28" y="37" text-anchor="middle" font-size="16">🏔️</text>
+        <text x="56" y="28" font-size="11" font-weight="700" fill="#0f172a">ISRO Cartosat-1 DEM</text>
+        <text x="56" y="44" font-size="9.5" font-weight="600" fill="#64748b">10m/30m GeoTIFF Rasters</text>
+        <text x="56" y="58" font-size="9" font-weight="600" fill="#2563eb">Terrain Slope &amp; Elev. Grids</text>
+      </g>
+
+      <!-- Card 2: NASA GPM Rain -->
+      <g transform="translate(45, 205)">
+        <rect width="200" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+        <rect x="10" y="12" width="36" height="40" rx="6" fill="#eff6ff" stroke="#0284c7" stroke-width="1.2"/>
+        <text x="28" y="37" text-anchor="middle" font-size="16">🌧️</text>
+        <text x="56" y="28" font-size="11" font-weight="700" fill="#0f172a">NASA GPM IMERG</text>
+        <text x="56" y="44" font-size="9.5" font-weight="600" fill="#64748b">0.1° Space Precipitation</text>
+        <text x="56" y="58" font-size="9" font-weight="600" fill="#0284c7">Near-Real-Time mm/hr Feed</text>
+      </g>
+
+      <!-- Card 3: Sentinel-1 InSAR Radar -->
+      <g transform="translate(45, 280)">
+        <rect width="200" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+        <rect x="10" y="12" width="36" height="40" rx="6" fill="#eff6ff" stroke="#4f46e5" stroke-width="1.2"/>
+        <text x="28" y="37" text-anchor="middle" font-size="16">🛰️</text>
+        <text x="56" y="28" font-size="11" font-weight="700" fill="#0f172a">Sentinel-1 InSAR Radar</text>
+        <text x="56" y="44" font-size="9.5" font-weight="600" fill="#64748b">C-Band Phase Coherence</text>
+        <text x="56" y="58" font-size="9" font-weight="600" fill="#4f46e5">Aut Gorge -3.8 mm/wk Creep</text>
+      </g>
+
+      <!-- Card 4: IMD Weather & Doppler -->
+      <g transform="translate(45, 355)">
+        <rect width="200" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+        <rect x="10" y="12" width="36" height="40" rx="6" fill="#eff6ff" stroke="#059669" stroke-width="1.2"/>
+        <text x="28" y="37" text-anchor="middle" font-size="16">📡</text>
+        <text x="56" y="28" font-size="11" font-weight="700" fill="#0f172a">IMD Doppler &amp; Weather</text>
+        <text x="56" y="44" font-size="9.5" font-weight="600" fill="#64748b">S-Band Radar (Z_max 38dBZ)</text>
+        <text x="56" y="58" font-size="9" font-weight="600" fill="#059669">Live Mandi/Kullu AWS Temp/RH</text>
+      </g>
+
+      <!-- Card 5: 8 IoT Sensor Stations -->
+      <g transform="translate(45, 430)">
+        <rect width="200" height="95" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+        <rect x="10" y="15" width="36" height="65" rx="6" fill="#fef2f2" stroke="#dc2626" stroke-width="1.2"/>
+        <text x="28" y="52" text-anchor="middle" font-size="16">⛰️</text>
+        <text x="56" y="30" font-size="11" font-weight="700" fill="#0f172a">8 In-Situ IoT Stations</text>
+        <text x="56" y="46" font-size="9.5" font-weight="600" fill="#64748b">• Ultrasonic Stage Level</text>
+        <text x="56" y="62" font-size="9.5" font-weight="600" fill="#64748b">• Pore-Water Piezometer</text>
+        <text x="56" y="78" font-size="9.5" font-weight="600" fill="#64748b">• Tipping Bucket Rain Gauge</text>
+        <text x="56" y="94" font-size="9" font-weight="700" fill="#dc2626">LoRa SX1276 868MHz Mesh</text>
+      </g>
+
+      <!-- Data Stream Arrows from Tier 1 -> Tier 2 -->
+      <path d="M260 160 C 290 160, 290 280, 320 280" stroke="url(#stream-gradient)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+      <path d="M260 235 C 290 235, 290 290, 320 290" stroke="url(#stream-gradient)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+      <path d="M260 310 C 290 310, 290 300, 320 300" stroke="url(#stream-gradient)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+      <path d="M260 385 C 290 385, 290 310, 320 310" stroke="url(#stream-gradient)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+      <path d="M260 480 C 295 480, 290 320, 320 320" stroke="url(#stream-gradient)" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+      <!-- =================================================== -->
+      <!-- TIER 2: CORE ORCHESTRATION & PINN ENGINE (CENTER) -->
+      <!-- =================================================== -->
+      <rect x="330" y="80" width="510" height="460" rx="14" fill="#ffffff" stroke="#d97706" stroke-width="2" />
+      <rect x="330" y="80" width="510" height="38" rx="14" fill="#fef3c7" />
+      <text x="585" y="104" text-anchor="middle" font-size="13" font-weight="800" fill="#92400e">TIER 2: CORE ORCHESTRATION &amp; PINN ENGINE (PORT 8000)</text>
+
+      <!-- FastAPI Async Bus & Bridge Stack -->
+      <g transform="translate(350, 135)">
+        <rect width="115" height="385" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+        <rect x="10" y="15" width="95" height="45" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2" />
+        <text x="57" y="34" text-anchor="middle" font-size="10" font-weight="800" fill="#1e40af">FastAPI ASGI</text>
+        <text x="57" y="48" text-anchor="middle" font-size="8.5" font-weight="600" fill="#3b82f6">Async Event Bus</text>
+
+        <rect x="10" y="70" width="95" height="50" rx="6" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.2" />
+        <text x="57" y="88" text-anchor="middle" font-size="9.5" font-weight="800" fill="#166534">/ws/telemetry</text>
+        <text x="57" y="101" text-anchor="middle" font-size="8.5" font-weight="600" fill="#15803d">3s Live WebSocket</text>
+        <text x="57" y="112" text-anchor="middle" font-size="7.5" font-weight="600" fill="#475569">Stream Broadcast</text>
+
+        <rect x="10" y="130" width="95" height="55" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1.2" />
+        <text x="57" y="148" text-anchor="middle" font-size="9.5" font-weight="800" fill="#92400e">State Bridge</text>
+        <text x="57" y="161" text-anchor="middle" font-size="8.5" font-weight="600" fill="#b45309">/api/v1/scenario</text>
+        <text x="57" y="174" text-anchor="middle" font-size="8" font-weight="600" fill="#78350f">App 1 ⇄ App 2 Sync</text>
+
+        <rect x="10" y="195" width="95" height="48" rx="6" fill="#faf5ff" stroke="#9333ea" stroke-width="1.2" />
+        <text x="57" y="213" text-anchor="middle" font-size="9.5" font-weight="800" fill="#6b21a8">SHAP Engine</text>
+        <text x="57" y="226" text-anchor="middle" font-size="8" font-weight="600" fill="#7e22ce">Risk Attribution</text>
+        <text x="57" y="236" text-anchor="middle" font-size="7.5" font-weight="600" fill="#475569">Top Driver Scoring</text>
+
+        <rect x="10" y="253" width="95" height="52" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1.2" />
+        <text x="57" y="271" text-anchor="middle" font-size="9.5" font-weight="800" fill="#0f172a">ISRO DEM DB</text>
+        <text x="57" y="284" text-anchor="middle" font-size="8" font-weight="600" fill="#475569">Cartosat Rasters</text>
+        <text x="57" y="296" text-anchor="middle" font-size="7.5" font-weight="600" fill="#475569">Census &amp; BRO Specs</text>
+
+        <text x="57" y="350" text-anchor="middle" font-size="8" font-weight="700" fill="#64748b">SUB-MS PIPELINE</text>
+        <text x="57" y="365" text-anchor="middle" font-size="9" font-weight="800" fill="#059669">&lt; 45ms Latency</text>
+      </g>
+
+      <!-- Physics-Informed Neural Core (PINN Box) -->
+      <g transform="translate(480, 135)">
+        <rect width="340" height="385" rx="10" fill="url(#pinn-glow)" stroke="#0284c7" stroke-width="2" />
+        <rect width="340" height="32" rx="10" fill="#e0f2fe" />
+        <text x="170" y="21" text-anchor="middle" font-size="11" font-weight="900" fill="#0369a1" letter-spacing="0.5">
+          ⚛️ PHYSICS-INFORMED NEURAL NETWORK (PINN)
+        </text>
+
+        <!-- Equation Box 1: Mohr Coulomb -->
+        <g transform="translate(15, 42)">
+          <rect width="310" height="75" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.2" />
+          <text x="12" y="18" font-size="10.5" font-weight="800" fill="#0369a1">1. Mohr-Coulomb Slope Stability (Fs)</text>
+          <text x="12" y="38" font-size="9.5" font-weight="700" fill="#0f172a" font-family="Courier, monospace">
+            Fs = [c' + (γ·z - uw)cos²β·tanφ'] / [γ·z·sinβ·cosβ]
+          </text>
+          <text x="12" y="54" font-size="8.5" font-weight="600" fill="#475569">
+            Pore Pressure uw &bull; Slope Angle β &bull; Cohesion c' (R²=0.9997)
+          </text>
+          <text x="12" y="67" font-size="8" font-weight="700" fill="#dc2626">
+            Fs &lt; 1.0 ➔ Immediate Landslide Failure Warning
+          </text>
+        </g>
+
+        <!-- Equation Box 2: Green-Ampt Hydro -->
+        <g transform="translate(15, 125)">
+          <rect width="310" height="75" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.2" />
+          <text x="12" y="18" font-size="10.5" font-weight="800" fill="#0369a1">2. Green-Ampt Transient Infiltration</text>
+          <text x="12" y="38" font-size="9.5" font-weight="700" fill="#0f172a" font-family="Courier, monospace">
+            f(t) = Ks·[1 + (ψ·Δθ)/F(t)],   uw = γw·[F(t) - Sdrain]/n
+          </text>
+          <text x="12" y="54" font-size="8.5" font-weight="600" fill="#475569">
+            Hydraulic Conductivity Ks &bull; Suction Head ψ &bull; Surface Runoff
+          </text>
+          <text x="12" y="67" font-size="8" font-weight="700" fill="#2563eb">
+            Excess Rainfall I &gt; f(t) ➔ Flash Flood Runoff Peak
+          </text>
+        </g>
+
+        <!-- Equation Box 3: 1D St. Venant Surge Routing -->
+        <g transform="translate(15, 208)">
+          <rect width="310" height="85" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.2" />
+          <text x="12" y="18" font-size="10.5" font-weight="800" fill="#0369a1">3. 1D St. Venant Hydrodynamic Wave Routing</text>
+          <text x="12" y="36" font-size="9.5" font-weight="700" fill="#0f172a" font-family="Courier, monospace">
+            Wave Speed c = √(g·y) + v,   Q = (1/n)·A·R^(2/3)·S0^(1/2)
+          </text>
+          <text x="12" y="52" font-size="9.5" font-weight="700" fill="#0f172a" font-family="Courier, monospace">
+            Arrival T(x) = ∫ (1/c) dx,   Pier Scour vs = Q / A_bridge
+          </text>
+          <text x="12" y="68" font-size="8.5" font-weight="600" fill="#475569">
+            Manning's n=0.042 &bull; Bridge Deck Freeboard Margin
+          </text>
+          <text x="12" y="79" font-size="8" font-weight="700" fill="#d97706">
+            vs &gt; 5.0 m/s ➔ NH-21 Critical Scour Warning
+          </text>
+        </g>
+
+        <!-- Equation Box 4: GLOF Breach Model -->
+        <g transform="translate(15, 300)">
+          <rect width="310" height="75" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.2" />
+          <text x="12" y="18" font-size="10.5" font-weight="800" fill="#0369a1">4. GLOF Moraine Dam Breach Model</text>
+          <text x="12" y="38" font-size="9" font-weight="700" fill="#0f172a">
+            Ghepan Gath (18.5M m³) &bull; Samudra Tapu (34M m³)
+          </text>
+          <text x="12" y="53" font-size="8.5" font-weight="600" fill="#475569">
+            Lake Freeboard Clearance &bull; Downstream Surge Time 2.8 hrs
+          </text>
+          <text x="12" y="67" font-size="8" font-weight="700" fill="#059669">
+            Automated Surge Arrival Prediction to Mandi Valley (84km)
+          </text>
+        </g>
+      </g>
+
+      <!-- Connecting Streams: Tier 2 -> Tier 3 -->
+      <path d="M840 220 C 865 220, 865 175, 890 175" stroke="#3b82f6" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+      <path d="M840 280 C 865 280, 865 285, 890 285" stroke="#f59e0b" stroke-width="3" fill="none" marker-end="url(#arrow-orange)" />
+      <path d="M840 400 C 865 400, 865 410, 890 410" stroke="#ef4444" stroke-width="3" fill="none" marker-end="url(#arrow-red)" />
+      <path d="M840 460 C 865 460, 865 490, 890 490" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arrow)" />
+
+      <!-- =================================================== -->
+      <!-- TIER 3: DUAL-CONSOLE & COMMAND OUTPUTS (RIGHT) -->
+      <!-- =================================================== -->
+      <rect x="900" y="80" width="270" height="460" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="900" y="80" width="270" height="38" rx="14" fill="#f1f5f9" />
+      <text x="1035" y="104" text-anchor="middle" font-size="13" font-weight="800" fill="#1e293b">TIER 3: STRATEGIC COMMAND</text>
+
+      <!-- App 1: Operational Console -->
+      <g transform="translate(915, 130)">
+        <rect width="240" height="95" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" />
+        <text x="12" y="20" font-size="11" font-weight="800" fill="#1e40af">🖥️ App 1: Operational Console (:5173)</text>
+        <text x="12" y="38" font-size="9" font-weight="600" fill="#334155">• Interactive Leaflet GIS (NASA GPM Grid)</text>
+        <text x="12" y="52" font-size="9" font-weight="600" fill="#334155">• 6 Habitations 3x2 Grid (Bhuntar ➔ Mandi)</text>
+        <text x="12" y="66" font-size="9" font-weight="600" fill="#334155">• 4 NH-21 Bridges 2x2 Grid (Deck Freeboard)</text>
+        <text x="12" y="80" font-size="9" font-weight="600" fill="#334155">• GLOF Surveillance &amp; NDRF 14 Bn Staging</text>
+      </g>
+
+      <!-- App 2: Tactical Simulator -->
+      <g transform="translate(915, 240)">
+        <rect width="240" height="90" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" />
+        <text x="12" y="20" font-size="11" font-weight="800" fill="#92400e">🎮 App 2: Tactical Sandbox (:5174)</text>
+        <text x="12" y="38" font-size="9" font-weight="600" fill="#334155">• 4 Historic Presets (2023 Mandi Cloudburst)</text>
+        <text x="12" y="52" font-size="9" font-weight="600" fill="#334155">• Disaster Variables Sliders (Rain, Stage y)</text>
+        <text x="12" y="66" font-size="9" font-weight="600" fill="#334155">• Instant "Push-to-Main Valley" Recompute</text>
+        <text x="12" y="80" font-size="8.5" font-weight="700" fill="#d97706">Proactive Evacuation &amp; Relocation Planning</text>
+      </g>
+
+      <!-- Output 3: NDMA CAP Alerts -->
+      <g transform="translate(915, 345)">
+        <rect width="240" height="85" rx="8" fill="#fef2f2" stroke="#ef4444" stroke-width="1.5" />
+        <text x="12" y="20" font-size="11" font-weight="800" fill="#991b1b">📢 NDMA CAP v1.2 XML Broadcast</text>
+        <text x="12" y="38" font-size="9" font-weight="600" fill="#334155">• ITU-T X.1303 Standard Protocol</text>
+        <text x="12" y="52" font-size="9" font-weight="600" fill="#334155">• Sachet National Portal Emergency Feed</text>
+        <text x="12" y="66" font-size="9" font-weight="600" fill="#334155">• Multi-Lingual Public SMS &amp; TV Alerts</text>
+        <text x="12" y="78" font-size="8.5" font-weight="700" fill="#dc2626">4 Certified Safe Shelters Routing</text>
+      </g>
+
+      <!-- Output 4: BRO Lifeline Logistics -->
+      <g transform="translate(915, 445)">
+        <rect width="240" height="80" rx="8" fill="#f0fdf4" stroke="#16a34a" stroke-width="1.5" />
+        <text x="12" y="20" font-size="11" font-weight="800" fill="#166534">🚚 BRO 70 RCC Lifeline Logistics</text>
+        <text x="12" y="38" font-size="9" font-weight="600" fill="#334155">• Heavy Excavator / JCB Pre-Positioning</text>
+        <text x="12" y="52" font-size="9" font-weight="600" fill="#334155">• Temporary Bailey Bridge Deployment</text>
+        <text x="12" y="66" font-size="9" font-weight="600" fill="#334155">• NH-21 Choke Point Traffic Diversion</text>
+      </g>
+
+      <!-- =================================================== -->
+      <!-- TIER 4: ZERO-INTERNET LORA MESH (BOTTOM BAR) -->
+      <!-- =================================================== -->
+      <rect x="30" y="560" width="1140" height="115" rx="14" fill="#0f172a" stroke="#334155" stroke-width="2" />
+      <text x="600" y="585" text-anchor="middle" font-size="13" font-weight="800" fill="#38bdf8" letter-spacing="0.5">
+        TIER 4: OFFLINE ZERO-INTERNET 868MHz LoRaWAN MESH ACTUATION (&lt; 1.5s FAST-LOOP)
+      </text>
+
+      <g transform="translate(60, 600)">
+        <rect width="240" height="60" rx="6" fill="#1e293b" stroke="#38bdf8" stroke-width="1"/>
+        <text x="12" y="24" font-size="10.5" font-weight="700" fill="#f8fafc">📻 Solar LoRa Mesh Network</text>
+        <text x="12" y="40" font-size="9" font-weight="500" fill="#94a3b8">868 MHz Multi-Hop Ad-Hoc Radio</text>
+        <text x="12" y="52" font-size="8.5" font-weight="600" fill="#38bdf8">100% Zero-Telecom / Grid Dependency</text>
+      </g>
+
+      <g transform="translate(340, 600)">
+        <rect width="250" height="60" rx="6" fill="#1e293b" stroke="#ef4444" stroke-width="1"/>
+        <text x="12" y="24" font-size="10.5" font-weight="700" fill="#f8fafc">🚨 110dB Solar Acoustic Sirens</text>
+        <text x="12" y="40" font-size="9" font-weight="500" fill="#94a3b8">Audible across 3.5 km Valley Radius</text>
+        <text x="12" y="52" font-size="8.5" font-weight="600" fill="#f87171">&lt; 1.5s Direct Autonomous Hardware Trigger</text>
+      </g>
+
+      <g transform="translate(630, 600)">
+        <rect width="240" height="60" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+        <text x="12" y="24" font-size="10.5" font-weight="700" fill="#f8fafc">🚧 Automated NH-21 Barrier Gates</text>
+        <text x="12" y="40" font-size="9" font-weight="500" fill="#94a3b8">Physically stops traffic before bridges submerge</text>
+        <text x="12" y="52" font-size="8.5" font-weight="600" fill="#fbbf24">Aut Tunnel &amp; Larji Dam Approach</text>
+      </g>
+
+      <g transform="translate(910, 600)">
+        <rect width="230" height="60" rx="6" fill="#1e293b" stroke="#34d399" stroke-width="1"/>
+        <text x="12" y="24" font-size="10.5" font-weight="700" fill="#f8fafc">👥 Panchayat Audio Speakers</text>
+        <text x="12" y="40" font-size="9" font-weight="500" fill="#94a3b8">Local dialect voice evacuation broadcast</text>
+        <text x="12" y="52" font-size="8.5" font-weight="600" fill="#34d399">Directs 8,500+ residents to high shelters</text>
+      </g>
+    </svg>
+  </div>
+</body>
+</html>
