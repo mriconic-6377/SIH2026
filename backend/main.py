@@ -142,17 +142,28 @@ def trigger_cloudburst(intensity: float = 0.8):
     }
 
 
-# ─────────────── Health Check ───────────────
+# ─────────────── Health Check & Static Files ───────────────
 
-@app.get("/", tags=["Health"])
+import os
+from fastapi.staticfiles import StaticFiles
+
+@app.get("/api/health", tags=["Health"])
 def health_check():
-    """Root health check endpoint."""
+    """Health check endpoint."""
     return {
         "status": "OPERATIONAL",
         "app": settings.app_name,
         "version": settings.app_version,
         "message": "GeoResilience AI — Multi-Hazard Disaster Early Warning Platform is running.",
     }
+
+frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "frontend", "dist"))
+if os.path.exists(frontend_dist):
+    app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="frontend")
+else:
+    @app.get("/", tags=["Health"])
+    def root_health():
+        return health_check()
 
 
 # ─────────────── Run with Uvicorn ───────────────

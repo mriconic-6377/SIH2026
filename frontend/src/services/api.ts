@@ -1,6 +1,6 @@
 import type { FullAssessmentResult, GISLayers, SensorStation } from '../types';
 
-const API_BASE = '';
+const API_BASE = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '');
 
 export async function fetchLatestSensors(): Promise<SensorStation[]> {
   const res = await fetch(`${API_BASE}/api/v1/telemetry/latest`);
@@ -74,8 +74,11 @@ export function createTelemetryWebSocket(
   onMessage: (reading: any) => void,
   onError?: (err: Event) => void
 ): WebSocket {
-  const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-  const wsUrl = `${protocol}//${window.location.host}/ws/telemetry`;
+  let wsUrl = import.meta.env.VITE_WS_URL;
+  if (!wsUrl) {
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    wsUrl = `${protocol}//${window.location.host}/ws/telemetry`;
+  }
   const ws = new WebSocket(wsUrl);
   ws.onmessage = (event) => {
     try {
